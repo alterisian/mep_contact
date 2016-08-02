@@ -21,7 +21,7 @@
 
 @import "bootstrap";
 
-//->Prelang (ui_framework:twitter_bootstrap)
+// (ui_framework:twitter_bootstrap)
 
 // Give everything in 'yield' margin to separate it.
 .yield {
@@ -33,7 +33,31 @@
   max-width: 750px;
 }
 
-//->Prelang (user_login:devise)
+//(user_login:devise)
 .form-user {
   max-width: 450px;
+}
+
+.navbar-default {
+    background-color: #003399;
+    border-bottom-color: yellow;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:visited {
+    color: yellow;
+}
+
+.navbar-default .navbar-brand > a {
+  color: #fff;
+}
+
+.navbar-default .navbar-brand > a:visited {
+	color: yellow;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #ff0000;
+    color: #fefefe;
 }
