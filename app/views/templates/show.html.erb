@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text en:</strong>
+  <%= @template.text_en %>
+</p>
+
+<p>
+  <strong>Text de:</strong>
+  <%= @template.text_de %>
+</p>
+
+<p>
+  <strong>Text fr:</strong>
+  <%= @template.text_fr %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @template.active %>
+</p>
+
+<%= link_to 'Edit', edit_template_path(@template) %> |
+<%= link_to 'Back', templates_path %>

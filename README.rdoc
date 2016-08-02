@@ -1,9 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application to connect the MEPs of the EU with those within the UK who are pro-EU.
 
-Things you may want to cover:
+It's a Ruby On Rails application. 
+
+In development, first run 
+mailcatcher, 
+before then running:
+rails s.
+
+It's main dependency is the MEP data, which obtained by an external Java script, and then cleaned.
+The import script needs updating to allow for this to be easily done.
+
+How to get the application up and running.
 
 * Ruby version
 
@@ -20,9 +29,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
-
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

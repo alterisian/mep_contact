@@ -25,5 +25,8 @@ class User < ActiveRecord::Base
                 password: Devise.friendly_token[0,20])
   end
 
+  def is_admin
+    false
+  end
 
 end

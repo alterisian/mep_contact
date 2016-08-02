@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  resources :templates
+
+  resources :messages
+  get 'landings/about', as: :about
   get 'landings/index'
+  
+  resources :countries
+  resources :parties
+  resources :meps
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,7 +16,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'landings#index'
+  root 'messages#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

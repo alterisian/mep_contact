@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mep.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @mep.country %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @mep.group %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @mep.email %>
+</p>
+
+<%= link_to 'Edit', edit_mep_path(@mep) %> |
+<%= link_to 'Back', meps_path %>

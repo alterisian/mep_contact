@@ -50,6 +50,11 @@ gem 'omniauth-facebook'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 
+#gem 'sendgrid' #no free account currently
+gem 'mail'
+
 group :development do
   gem 'pry-rails'
+  gem 'sanitize_email' #replaces to emails with Ian's email addres - https://github.com/pboling/sanitize_email
+  #gem 'mailcatcher' # use gem install mailcatcher, to avoid conflicts
 end

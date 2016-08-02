@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719104948) do
+ActiveRecord::Schema.define(version: 20160719145437) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,57 @@ ActiveRecord::Schema.define(version: 20160719104948) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "countries", force: true do |t|
+    t.string   "name",       limit: nil
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "meps", force: true do |t|
+    t.string   "name",         limit: nil
+    t.string   "state",        limit: nil
+    t.string   "group",        limit: nil
+    t.string   "email",        limit: nil
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "party_id"
+    t.integer  "country_id"
+    t.integer  "count"
+    t.boolean  "dont_message"
+  end
+
+  create_table "messages", force: true do |t|
+    t.integer  "mep_id"
+    t.string   "from_name"
+    t.string   "from_email"
+    t.string   "from_location"
+    t.string   "ip_address"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "uniqueid"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "mep_support"
+  end
+
+  create_table "parties", force: true do |t|
+    t.string   "name",       limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "templates", force: true do |t|
+    t.text     "text_en"
+    t.text     "text_de"
+    t.text     "text_fr"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

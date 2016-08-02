@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing <%= @meps.count %> MEPs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Group</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meps.each do |mep| %>
+      <tr>
+        <td><%= mep.name %></td>
+        <td><%= mep.country.name %></td>
+        <td><%= mep.party.name %></td>
+        <td><%= mep.email %></td>
+        <td><%= link_to 'Show', mep %></td>
+        <td><%= link_to 'Edit', edit_mep_path(mep) %></td>
+        <td><%= link_to 'Destroy', mep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mep', new_mep_path %>

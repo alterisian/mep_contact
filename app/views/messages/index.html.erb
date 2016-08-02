@@ -1,0 +1,41 @@
+<h1>Listing messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mep</th>
+      <th>From name</th>
+      <th>From email</th>
+      <th>From location</th>
+      <th>Ip address</th>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th>Uniqueid</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.mep_id %></td>
+        <td><%= message.from_name %></td>
+        <td><%= message.from_email %></td>
+        <td><%= message.from_location %></td>
+        <td><%= message.ip_address %></td>
+        <td><%= message.lat %></td>
+        <td><%= message.lng %></td>
+        <td><%= message.uniqueid %></td>
+        <td><%= message.value %></td>
+        <td><%= link_to 'Show', message %></td>
+        <td><%= link_to 'Edit', edit_message_path(message) %></td>
+        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Message', new_message_path %>
