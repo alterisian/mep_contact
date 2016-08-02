@@ -22,7 +22,7 @@ class MessagesController < InheritedResources::Base
       	
       	MepMailer.initial_contact(@message).deliver #now #TODO: consider queueing .deliver_later
 
-        format.html { redirect_to about_url, notice: "Message to #{@message.mep.name} was successfully sent." }        
+        format.html { redirect_to about_url, notice: "Thank you, your message to #{@message.mep.name} was successfully sent." }
       else
       	@mep = Mep.find_one
         format.html { render :new }        
