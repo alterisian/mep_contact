@@ -12,11 +12,25 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="navbar-collapse-1">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">      
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if defined?(Devise) %>
         <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "MEPs", meps_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Countries", countries_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Parties", parties_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Messages", messages_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Templates", templates_path %></li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
             <ul class="dropdown-menu">

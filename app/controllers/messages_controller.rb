@@ -1,8 +1,18 @@
-class MessagesController < InheritedResources::Base
+class MessagesController  < ApplicationController
+  before_action :require_user_signed_in, :except => [:new, :create, :update]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
+#require admin for show.
+
+  def index
+  	@messages = Message.all 
+  end
 
 	def new
 		@mep = Mep.find_one
 		@message = Message.new
+		if current_user
+			@message.from_email = current_user.email
+		end
 		@message.mep = @mep
 		@message.value = Template.where("active IS ?", true).first.text_en
 	end
@@ -18,10 +28,8 @@ class MessagesController < InheritedResources::Base
     respond_to do |format|
 			@message.value += "Please select the following link to show you support those who voted to remain in the EU. " + message_url(@message.uniqueid)    	
 
-      if @message.save
-      	
+      if @message.save      	
       	MepMailer.initial_contact(@message).deliver #now #TODO: consider queueing .deliver_later
-
         format.html { redirect_to about_url, notice: "Thank you, your message to #{@message.mep.name} was successfully sent." }
       else
       	@mep = Mep.find_one
@@ -54,6 +62,10 @@ class MessagesController < InheritedResources::Base
   end
 
   private
+
+  	def set_message
+  		@message = Message.find(params[:id])
+  	end
 
     def message_params
       params.require(:message).permit(:mep_id, :from_name, :from_email, :from_location, :ip_address, :lat, :lng, :value)

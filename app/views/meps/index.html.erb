@@ -16,18 +16,22 @@
   <tbody>
     <% @meps.each do |mep| %>
       <tr>
-        <td><%= mep.name %></td>
-        <td><%= mep.country.name %></td>
+        <td><%= link_to mep.name, "http://www.europarl.europa.eu/meps/en/#{mep.id.to_s}/_home.html" %></td>
+        <td><%= link_to mep.country.name, country_path(mep.country) %></td>
         <td><%= mep.party.name %></td>
         <td><%= mep.email %></td>
+      <% if current_user.admin? %>
         <td><%= link_to 'Show', mep %></td>
         <td><%= link_to 'Edit', edit_mep_path(mep) %></td>
         <td><%= link_to 'Destroy', mep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
+        <td colspan="3">&nbsp;</td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Mep', new_mep_path %>
+<% if current_user.admin? %>
+  <%= link_to 'New Mep', new_mep_path %>
+<% end %>

@@ -13,9 +13,10 @@
 	We'll not use your data for any other purpose, but we need your email, name, and location.
 </p>
 
-<p>
+<div id="mep_info">
 	MEP: <%= @mep.name %>
 	<br/>Country: <%= @mep.country.name %>
 	<br/>Party: <%= @mep.party.name %>
-</p>
+</div>
+
 <%= render 'form' %>

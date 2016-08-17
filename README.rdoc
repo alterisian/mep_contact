@@ -9,7 +9,7 @@ mailcatcher,
 before then running:
 rails s.
 
-It's main dependency is the MEP data, which obtained by an external Java script, and then cleaned.
+It's main dependency is the MEP data, which obtained by an external Java script (https://github.com/timyates/mep-emails ), and then cleaned.
 The import script needs updating to allow for this to be easily done.
 
 How to get the application up and running.

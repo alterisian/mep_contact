@@ -6,11 +6,12 @@
 </p>
 
 <p>
-  <strong>Lat:</strong>
-  <%= @country.lat %>
+	<strong>MEPs</strong>
+	<% @country.meps.each do |mep| %>
+		<br/> <%= mep.name %>
+	<% end %>
 </p>
 
 <p>
-  <strong>Lng:</strong>
-  <%= @country.lng %>
+	<%= link_to "All countries", countries_url %>
 </p>

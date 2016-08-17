@@ -25,7 +25,11 @@ class User < ActiveRecord::Base
                 password: Devise.friendly_token[0,20])
   end
 
-  def is_admin
+  def admin?
+    if self.email == "mpcontact@ianmoss.com" #TODO-IM: Move to properties file
+      return true 
+    end
+
     false
   end
 

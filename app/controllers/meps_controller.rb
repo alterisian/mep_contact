@@ -1,4 +1,7 @@
 class MepsController < ApplicationController
+  before_action :require_user_signed_in
+  before_action :require_admin_user
+  
   before_action :set_mep, only: [:show, :edit, :update, :destroy]
 
   # GET /meps

@@ -1,4 +1,5 @@
-class TemplatesController < InheritedResources::Base
+class TemplatesController < ApplicationController
+  before_action :require_user_signed_in
 
   private
 

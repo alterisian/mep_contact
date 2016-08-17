@@ -1,7 +1,7 @@
 <%= form_for(@message) do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being sent to the MEP:</h2>
 
       <ul>
       <% @message.errors.full_messages.each do |message| %>
@@ -18,7 +18,7 @@
 -->  
   <div class="field">
     <%= f.label :from_name, "Your name" %><br>
-    <%= f.text_field :from_name %>
+    <%= f.text_field :from_name, autofocus: true %>
   </div>
   <div class="field">
     <%= f.label :from_email, "Your email" %><br>

@@ -19,7 +19,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= message.mep_id %></td>
+        <td><a href="http://www.europarl.europa.eu/meps/en/<%= message.mep_id %>/UMA_AALTONEN_home.html"><%= message.mep_id %></a></td>
         <td><%= message.from_name %></td>
         <td><%= message.from_email %></td>
         <td><%= message.from_location %></td>
@@ -27,7 +27,7 @@
         <td><%= message.lat %></td>
         <td><%= message.lng %></td>
         <td><%= message.uniqueid %></td>
-        <td><%= message.value %></td>
+        <td><%= truncate( message.value ) %></td>
         <td><%= link_to 'Show', message %></td>
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>

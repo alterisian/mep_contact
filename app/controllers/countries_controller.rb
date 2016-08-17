@@ -1,5 +1,8 @@
 class CountriesController < ApplicationController
+  before_action :require_user_signed_in
+  before_action :require_admin_user, except: [:index]
   before_action :set_country, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /countries
   # GET /countries.json
@@ -10,6 +13,7 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+    
   end
 
   # GET /countries/new

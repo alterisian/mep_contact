@@ -5,7 +5,6 @@ class MepMailer < ActionMailer::Base
   	@message = message
   	mail(from: "#{message.from_name} <#{message.from_email}>", reply_to: "mepcontactcampaign@gmail.com", to: "hellomep@ianmoss.com", subject: "Please support the remainers.")  	
   	#message.mep.email
-
   end
 
 end

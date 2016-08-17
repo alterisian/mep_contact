@@ -1,4 +1,5 @@
 class PartiesController < ApplicationController
+  before_action :require_user_signed_in
   before_action :set_party, only: [:show, :edit, :update, :destroy]
 
   # GET /parties

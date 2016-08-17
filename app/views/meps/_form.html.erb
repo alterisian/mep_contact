@@ -1,7 +1,7 @@
 <%= form_for(@mep) do |f| %>
   <% if @mep.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@mep.errors.count, "error") %> prohibited this mep from being saved:</h2>
+      <h2><%= pluralize(@mep.errors.count, "error") %> prohibited this MEP message from being sent:</h2>
 
       <ul>
       <% @mep.errors.full_messages.each do |message| %>
